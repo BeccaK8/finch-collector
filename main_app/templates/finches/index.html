@@ -5,17 +5,19 @@
 
     {% for finch in finches %}
         <div class="card grey lighten-3">
-            <div class="card-content">
-                <span class="card-title">{{ finch.name }}</span>
-                <p>Breed: {{ finch.breed }}</p>
-                <p>Description: {{ finch.description }}</p>
-                <p>Color: {{ finch.color }}</p>
-                {% if finch.size_inches > 1 %}
-                    <p>Size: {{ finch.size_inches }} inches</p>
-                {% else %}
-                    <p>Size: {{ finch.size_inches }} inch</p>
-                {% endif %}
-            </div>
+            <a href="/finches/{{ finch.id }}" class="black-text">
+                <div class="card-content">
+                    <span class="card-title">{{ finch.name }}</span>
+                    <p>Breed: {{ finch.breed }}</p>
+                    <p>Description: {{ finch.description }}</p>
+                    <p>Color: <span class="{{ finch.color.lower }}-text">{{ finch.color }}</span></p>
+                    {% if finch.size_inches > 1 %}
+                        <p>Size: {{ finch.size_inches }} inches</p>
+                    {% else %}
+                        <p>Size: {{ finch.size_inches }} inch</p>
+                    {% endif %}
+                </div>
+            </a>
         </div>
     {% endfor %}
 
