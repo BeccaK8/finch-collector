@@ -12,3 +12,12 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: black;
+    border: 1px solid black;
+}

@@ -8,7 +8,7 @@
             <span class="card-title">{{ finch.name }}</span>
             <p>Breed: {{ finch.breed }}</p>
             <p>Description: {{ finch.description }}</p>
-            <p>Color: <span class="{{ finch.color.lower }}-text">{{ finch.color }}</span></p>
+            <p>Color: <span class="dot {{ finch.color.lower }}"></span>&nbsp;{{ finch.color }}</p>
             {% if finch.size_inches > 1 %}
                 <p>Size: {{ finch.size_inches }} inches</p>
             {% else %}
