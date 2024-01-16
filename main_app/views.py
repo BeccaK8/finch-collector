@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Finch
 
 # Create your views here.
@@ -29,3 +29,10 @@ def finches_detail(request, finch_id):
 class FinchCreate(CreateView):
     model = Finch
     fields = '__all__'
+
+# Update View - inheriting from CBV Update View
+# Update existing finch
+class FinchUpdate(UpdateView):
+    model = Finch
+    # cannot rename a Finch
+    fields = [ 'breed', 'description', 'color', 'size_inches' ]

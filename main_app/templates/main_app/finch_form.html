@@ -15,7 +15,11 @@
         </table>
         <br>
         <input type="submit" value="Submit" class="btn">
-        <a href="{% url 'index' %}" class="btn red">Cancel</a>
+        {% if object %}
+            <a href="{% url 'detail' object.id %}" class="btn red">Cancel</a>
+        {% else %}
+            <a href="{% url 'index' %}" class="btn red">Cancel</a>
+        {% endif %}
     </form>
 
 {% endblock %}

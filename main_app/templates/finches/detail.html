@@ -15,6 +15,9 @@
                 <p>Size: {{ finch.size_inches }} inch</p>
             {% endif %}
         </div>
+        <div class="card-action">
+            <a href="{% url 'finches_update' finch.id %}" class="teal-text darken-4">Update</a>
+        </div>
     </div>
 
 {% endblock%}
