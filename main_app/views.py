@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch
 
 # Create your views here.
@@ -30,9 +30,15 @@ class FinchCreate(CreateView):
     model = Finch
     fields = '__all__'
 
-# Update View - inheriting from CBV Update View
+# Update View - inheriting from CBV UpdateView
 # Update existing finch
 class FinchUpdate(UpdateView):
     model = Finch
     # cannot rename a Finch
     fields = [ 'breed', 'description', 'color', 'size_inches' ]
+
+# Delete View - inheriting from CBV DeleteView
+# Delete existing finch
+class FinchDelete(DeleteView):
+    model = Finch
+    success_url = '/finches'
