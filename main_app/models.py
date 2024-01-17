@@ -20,6 +20,10 @@ class Finch(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={ 'finch_id': self.id })
+    
+    # Change the Default Sort
+    class Meta: 
+        ordering = ['name']
 
 
 class Feeding(models.Model):
@@ -35,3 +39,7 @@ class Feeding(models.Model):
 
     def __str__(self):
         return f"{self.get_meal_display()} on {self.date} for {self.finch}"
+    
+    # Change the Default Sort
+    class Meta: 
+        ordering = ['-date']
