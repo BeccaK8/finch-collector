@@ -13,5 +13,5 @@ urlpatterns = [
 
     # feeder routes
     path('feeders/', views.FeederList.as_view(), name='feeders_index'),
-    path('feeders/<int:feeder_id>/', views.FeederDetail.as_view(), name='feeders_detail'),
+    path('feeders/<int:pk>/', views.FeederDetail.as_view(), name='feeders_detail'),
 ]
