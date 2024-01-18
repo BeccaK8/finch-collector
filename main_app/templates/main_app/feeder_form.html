@@ -16,7 +16,7 @@
         <br>
         <input type="submit" value="Submit" class="btn">
         {% if object %}
-            <a href="{% url 'feeders_detail' object.id %}" class="btn red">Cancel</a>
+            <a href="{% url 'feeder_detail' object.id %}" class="btn red">Cancel</a>
         {% else %}
             <a href="{% url 'feeders_index' %}" class="btn red">Cancel</a>
         {% endif %}

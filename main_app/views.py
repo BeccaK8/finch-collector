@@ -89,5 +89,9 @@ class FeederCreate(CreateView):
         return super().form_valid(form)
     
 # Feeder Update
+class FeederUpdate(UpdateView):
+    model = Feeder
+    fields = [ 'name', 'location', 'food_type' ]
+    
 # Feeder Delete
     
