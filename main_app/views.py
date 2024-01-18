@@ -92,6 +92,8 @@ class FeederCreate(CreateView):
 class FeederUpdate(UpdateView):
     model = Feeder
     fields = [ 'name', 'location', 'food_type' ]
-    
+
 # Feeder Delete
-    
+class FeederDelete(DeleteView):
+    model = Feeder
+    success_url = '/feeders'

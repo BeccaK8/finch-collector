@@ -12,7 +12,7 @@
         </div>
         <div class="card-action">
             <a href="{% url 'feeders_update' feeder.id %}" class="teal-text darken-4">Update</a>
-            <a href="" class="teal-text darken-4">Delete</a>
+            <a href="{% url 'feeders_delete' feeder.id %}" class="teal-text darken-4">Delete</a>
         </div>
     </div>
 
