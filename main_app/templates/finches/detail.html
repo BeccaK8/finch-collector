@@ -60,6 +60,47 @@
         </div>
     </div>
 
+    <!-- Associated Feeder Section -->
+    <hr>
+    <div class="row">
+        <div class="col s6">
+            <h3>{{ finch.name }}'s Feeders</h3>
+            {% if finch.feeders.count %}
+                {% for feeder in finch.feeders.all %}
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">{{ feeder.name }}</span>
+                            Serving {{ feeder.get_food_type_display }} in the {{ feeder.location }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h5>No Feeders</h5>
+            {% endif %}
+        </div>
+        <!-- Available feeders: feeders_finch_doesnt_have -->
+        <div class="col s6">
+            <h3>Available Feeders</h3>
+            {% for feeder in feeders.all %}
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ feeder.name }}</span>
+                        Serving {{ feeder.get_food_type_display }} in the {{ feeder.location }}
+                    </div>
+                    <div class="card-action">
+                        <form action="{% url 'assoc_feeder' finch.id feeder.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn">Add</button>
+                        </form>
+                    </div>
+                </div>
+            {% empty %}
+                <h5>{{finch.name}} Already Has All Feeders Available</h5>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- End Associated Feeder Section -->
+
     <script>
         const dateEl = document.getElementById('id_date');
         // M is Materialize's global variable

@@ -31,10 +31,18 @@ def finches_detail(request, finch_id):
     #find one finch using its id
     finch = Finch.objects.get(id=finch_id)
 
+    # get the feeders not associated to the finch
+    id_list = finch.feeders.all().values_list('id')
+    feeders_finch_doesnt_have = Feeder.objects.exclude(id__in=id_list)
+
     #instantiate FeedingForm to be rendered in template
     feeding_form = FeedingForm()
 
-    return render(request, 'finches/detail.html', { 'finch': finch, 'feeding_form': feeding_form })
+    return render(request, 'finches/detail.html', { 
+        'finch': finch, 
+        'feeding_form': feeding_form,
+        'feeders': feeders_finch_doesnt_have
+    })
 
 # Save feeding and redirect
 def add_feeding(request, finch_id):
@@ -47,6 +55,10 @@ def add_feeding(request, finch_id):
         new_feeding.save()
     return redirect('detail', finch_id=finch_id)
 
+# Associate Feeder to Finch
+def assoc_feeder(request, finch_id, feeder_id):
+    Finch.objects.get(id=finch_id).feeders.add(feeder_id)
+    return redirect('detail', finch_id=finch_id)
 
 # Create View - inheriting from CBV CreateView
 # Create new finches

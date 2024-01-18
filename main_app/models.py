@@ -40,6 +40,8 @@ class Finch(models.Model):
     description = models.TextField(max_length=250, default=None)
     color = models.CharField(max_length=100, default=None)
     size_inches = models.IntegerField()
+    # add the M:M relationship
+    feeders = models.ManyToManyField(Feeder)
 
     def __str__(self):
         return self.name
