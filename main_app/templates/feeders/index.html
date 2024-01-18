@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h3>Feeder List</h3>
+
+    {% for feeder in object_list %}
+        <div class="card grey lighten-3">
+            <a href="{% url 'feeders_detail' feeder.id %}" class="black-text">
+                <div class="card-content">
+                    <span class="card-title">{{ feeder.name }}</span>
+                    <p>Location: {{ feeder.location }}</p>
+                    <p>Food Type: {{ feeder.food_type }}</p>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+{% endblock%}

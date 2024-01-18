@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
+
+# import Class-based Views (CBVs)
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Finch
+from .models import Finch, Feeder
 from .forms import FeedingForm
 
 # Create your views here.
@@ -60,3 +64,21 @@ class FinchUpdate(UpdateView):
 class FinchDelete(DeleteView):
     model = Finch
     success_url = '/finches'
+
+
+### FEEDER views
+    
+# Feeder List
+class FeederList(ListView):
+    model = Feeder
+    template_name = 'feeders/index.html'
+
+# Feeder Detail
+class FeederDetail(DetailView):
+    model = Feeder
+    template_name = 'feeders/detail.html'    
+
+# Feeder Create
+# Feeder Update
+# Feeder Delete
+    
