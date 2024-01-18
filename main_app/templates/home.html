@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
+    {% load static %}
     <h1>Home</h1>
+
+    <img class="responsive-img" alt="finches" src="{% static 'images/finches.jpg' %}">
 
 {% endblock %}
