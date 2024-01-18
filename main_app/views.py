@@ -60,11 +60,17 @@ def assoc_feeder(request, finch_id, feeder_id):
     Finch.objects.get(id=finch_id).feeders.add(feeder_id)
     return redirect('detail', finch_id=finch_id)
 
+# Unassociate Feeder to Finch
+def unassoc_feeder(request, finch_id, feeder_id):
+    Finch.objects.get(id=finch_id).feeders.remove(feeder_id)
+    return redirect('detail', finch_id=finch_id)
+
+
 # Create View - inheriting from CBV CreateView
 # Create new finches
 class FinchCreate(CreateView):
     model = Finch
-    fields = '__all__'
+    fields = [ 'name', 'breed', 'description', 'color', 'size_inches' ]
 
 # Update View - inheriting from CBV UpdateView
 # Update existing finch

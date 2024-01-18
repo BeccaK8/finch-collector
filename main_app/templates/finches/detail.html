@@ -72,6 +72,12 @@
                             <span class="card-title">{{ feeder.name }}</span>
                             Serving {{ feeder.get_food_type_display }} in the {{ feeder.location }}
                         </div>
+                        <div class="card-action">
+                            <form action="{% url 'unassoc_feeder' finch.id feeder.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn red">-</button>
+                            </form>
+                        </div>
                     </div>
                 {% endfor %}
             {% else %}
