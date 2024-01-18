@@ -1,3 +1,5 @@
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # import Class-based Views (CBVs)
@@ -79,6 +81,13 @@ class FeederDetail(DetailView):
     template_name = 'feeders/detail.html'    
 
 # Feeder Create
+class FeederCreate(CreateView):
+    model = Feeder
+    fields = [ 'name', 'location', 'food_type' ]
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
 # Feeder Update
 # Feeder Delete
     

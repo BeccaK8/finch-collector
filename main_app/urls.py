@@ -13,5 +13,6 @@ urlpatterns = [
 
     # feeder routes
     path('feeders/', views.FeederList.as_view(), name='feeders_index'),
-    path('feeders/<int:pk>/', views.FeederDetail.as_view(), name='feeders_detail'),
+    path('feeders/create/', views.FeederCreate.as_view(), name='feeders_create'),
+    path('feeders/<int:pk>/', views.FeederDetail.as_view(), name='feeder_detail'),
 ]

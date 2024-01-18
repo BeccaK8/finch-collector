@@ -22,7 +22,7 @@ class Feeder(models.Model):
     food_type = models.CharField(
         max_length=1,
         choices=FOOD_TYPE,
-        default=FOOD_TYPE[2][0]
+        default=FOOD_TYPE[3][0]
     )
 
     def __str__(self):
